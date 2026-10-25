@@ -1,14 +1,12 @@
-<p align="center">
-  <img src="animation_2.gif" alt="Animation of the Lattice Boltzmann simulation of a dissolving body" width="900">
-</p>
-
 # Lattice Boltzmann Simulation of a Dissolving Body
 
 This project implements a numerical model of a solid body dissolving in a fluid flow. The simulation couples an incompressible flow solver with an advection–diffusion model for the dissolved substance and updates the obstacle geometry according to the local diffusive flux.
 
 The implementation is written in **Python** using **NumPy**. It is based on the *Lattice Boltzmann methods* course materials at the **Technical University of Munich (TUM), Summer Semester 2026**, in particular the sugar-ball dissolution exercise (labelled *Exercise Sheet P3a* in the sheet and *Programming Tutorial 3b* in the Python template). The code builds on that course assignment and should be read as a course project, rather than as a general-purpose CFD solver.
 
-> **Animation:** `animazione_2.gif` is displayed at the top of this page. Place the GIF in the same directory as this `README.md` so that GitHub can render it.
+<p align="center">
+  <img src="animation_2.gif" alt="Animation of the Lattice Boltzmann simulation of a dissolving body" width="900">
+</p>
 
 ## Contents
 
