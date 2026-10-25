@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="animazione_2.gif" alt="Animation of the Lattice Boltzmann simulation of a dissolving body" width="900">
+  <img src="animation_2.gif" alt="Animation of the Lattice Boltzmann simulation of a dissolving body" width="900">
 </p>
 
 # Lattice Boltzmann Simulation of a Dissolving Body
