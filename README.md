@@ -32,16 +32,11 @@ Let $\Omega_f(t)\subset\mathbb{R}^2$ denote the fluid region at time $t$, and le
 The fluid is modelled by the incompressible Navier–Stokes equations:
 
 $$
-\frac{\partial \mathbf{u}}{\partial t}
-+ (\mathbf{u}\cdot\nabla)\mathbf{u}
-+ \frac{1}{\rho}\nabla p
-- \nu\Delta\mathbf{u}=0
-\qquad\text{in }\Omega_f(t),
+\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u} + \frac{1}{\rho}\nabla p - \nu\Delta\mathbf{u}=0 \qquad\text{in }\Omega_f(t),
 $$
 
 $$
-\nabla\cdot\mathbf{u}=0
-\qquad\text{in }\Omega_f(t).
+\nabla\cdot\mathbf{u}=0 \qquad\text{in }\Omega_f(t).
 $$
 
 Here, $\rho$ is the fluid density and $\nu$ the kinematic viscosity.
@@ -51,10 +46,7 @@ Here, $\rho$ is the fluid density and $\nu$ the kinematic viscosity.
 The concentration of dissolved material satisfies
 
 $$
-\frac{\partial C}{\partial t}
-+ \mathbf{u}\cdot\nabla C
-- D\Delta C=0
-\qquad\text{in }\Omega_f(t),
+\frac{\partial C}{\partial t} + \mathbf{u}\cdot\nabla C - D\Delta C=0 \qquad\text{in }\Omega_f(t),
 $$
 
 where $D$ is the diffusivity. The velocity field transports the concentration by advection, while diffusion spreads it through the fluid.
@@ -64,8 +56,7 @@ where $D$ is the diffusivity. The velocity field transports the concentration by
 The obstacle surface recedes according to the prescribed flux law
 
 $$
-v_n=-D\nabla C\cdot\mathbf{n}
-\qquad\text{on }\Gamma(t),
+v_n=-D\nabla C\cdot\mathbf{n} \qquad\text{on }\Gamma(t),
 $$
 
 where $\mathbf{n}$ is the unit normal used by the implementation and $v_n$ is the signed normal recession rate. This relation connects the concentration gradient at the interface to the local change in geometry. In the numerical implementation, the interface is represented on the lattice and its geometry changes by removing solid cells once their accumulated recession measure crosses a threshold.
