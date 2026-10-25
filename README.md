@@ -25,7 +25,7 @@ The implementation is written in **Python** using **NumPy**. It is based on the 
 
 ## Model equations
 
-Let \(\Omega_f(t)\subset\mathbb{R}^2\) denote the fluid region at time \(t\), and let \(\Gamma(t)\) be the surface of the dissolving obstacle. The unknowns are the fluid velocity \(\mathbf{u}(\mathbf{x},t)\), pressure \(p(\mathbf{x},t)\), and dissolved-substance concentration \(C(\mathbf{x},t)\). The obstacle geometry—and therefore the fluid domain—changes over time.
+Let $\Omega_f(t)\subset\mathbb{R}^2$ denote the fluid region at time $t$, and let $\Gamma(t)$ be the surface of the dissolving obstacle. The unknowns are the fluid velocity $\mathbf{u}(\mathbf{x},t)$, pressure $p(\mathbf{x},t)$, and dissolved-substance concentration $C(\mathbf{x},t)$. The obstacle geometry—and therefore the fluid domain—changes over time.
 
 ### Incompressible flow
 
@@ -44,7 +44,7 @@ $$
 \qquad\text{in }\Omega_f(t).
 $$
 
-Here, \(\rho\) is the fluid density and \(\nu\) the kinematic viscosity.
+Here, $\rho$ is the fluid density and $\nu$ the kinematic viscosity.
 
 ### Advection–diffusion of the concentration
 
@@ -57,7 +57,7 @@ $$
 \qquad\text{in }\Omega_f(t),
 $$
 
-where \(D\) is the diffusivity. The velocity field transports the concentration by advection, while diffusion spreads it through the fluid.
+where $D$ is the diffusivity. The velocity field transports the concentration by advection, while diffusion spreads it through the fluid.
 
 ### Dissolution and moving boundary
 
@@ -68,11 +68,11 @@ v_n=-D\nabla C\cdot\mathbf{n}
 \qquad\text{on }\Gamma(t),
 $$
 
-where \(\mathbf{n}\) is the unit normal used by the implementation and \(v_n\) is the signed normal recession rate. This relation connects the concentration gradient at the interface to the local change in geometry. In the numerical implementation, the interface is represented on the lattice and its geometry changes by removing solid cells once their accumulated recession measure crosses a threshold.
+where $\mathbf{n}$ is the unit normal used by the implementation and $v_n$ is the signed normal recession rate. This relation connects the concentration gradient at the interface to the local change in geometry. In the numerical implementation, the interface is represented on the lattice and its geometry changes by removing solid cells once their accumulated recession measure crosses a threshold.
 
 The coupling is therefore two-way at the system level:
 
-1. The flow velocity \(\mathbf{u}\) enters the advection term in the concentration equation.
+1. The flow velocity $\mathbf{u}$ enters the advection term in the concentration equation.
 2. The concentration gradient determines the local recession rate.
 3. The updated obstacle changes the fluid region and its boundary conditions, affecting subsequent flow and transport.
 
@@ -80,10 +80,10 @@ The coupling is therefore two-way at the system level:
 
 ### D2Q9 Lattice Boltzmann model
 
-The code uses a two-dimensional **D2Q9 lattice**, with nine discrete velocity directions \(\mathbf{c}_i\) and associated weights \(w_i\). Two sets of distribution functions are evolved:
+The code uses a two-dimensional **D2Q9 lattice**, with nine discrete velocity directions $\mathbf{c}_i$ and associated weights $w_i$. Two sets of distribution functions are evolved:
 
-- \(f_i\): hydrodynamic populations used to recover the fluid density and velocity;
-- \(g_i\): scalar populations used to recover the concentration field.
+- $f_i$: hydrodynamic populations used to recover the fluid density and velocity;
+- $g_i$: scalar populations used to recover the concentration field.
 
 The macroscopic fields are reconstructed from the populations as
 
@@ -145,10 +145,10 @@ The implementation follows the boundary-condition setup in the course exercise:
 
 | Boundary | Flow | Concentration |
 |---|---|---|
-| Inlet | Prescribed Poiseuille velocity profile, implemented with a Zou–He-type reconstruction | \(C_{\mathrm{in}}=0\), applied with anti-bounce-back |
+| Inlet | Prescribed Poiseuille velocity profile, implemented with a Zou–He-type reconstruction | $C_{\mathrm{in}}=0$, applied with anti-bounce-back |
 | Outlet | Constant-density/pressure treatment | Missing outgoing-side populations are set using the zero-value treatment in the code |
 | Top and bottom walls | Bounce-back, enforcing no-slip | Bounce-back |
-| Obstacle surface | Half-way bounce-back, enforcing no-slip | Anti-bounce-back with \(C_{\mathrm{body}}=1\) |
+| Obstacle surface | Half-way bounce-back, enforcing no-slip | Anti-bounce-back with $C_{\mathrm{body}}=1$ |
 
 The concentration boundary values represent a source of dissolved material at the obstacle surface and zero concentration at the inflow. The boundary populations are reconstructed direction by direction using the D2Q9 stencil.
 
@@ -210,7 +210,7 @@ $$
 D=\frac{\nu}{\mathrm{Pr}},
 $$
 
-where \(R\) is the initial obstacle radius in lattice units. These are lattice-unit parameters; they are not automatically SI values.
+where $R$ is the initial obstacle radius in lattice units. These are lattice-unit parameters; they are not automatically SI values.
 
 ## Requirements and execution
 
